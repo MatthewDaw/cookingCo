@@ -208,7 +208,7 @@
 
               })
           })
-          
+          //
            $("#submitNewPassword").click(function(){
               $.ajax({
 						type: "POST",
