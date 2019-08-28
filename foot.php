@@ -14,24 +14,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	  
-	  <script>
-
-
- 
-  if(pageGo)
-  {
-             $.ajax({
-                type: "POST",
-                url: "actions.php?action=getPage",
-                data: {pageCall: pageToGo},
-                success: function(result) {
-                    $("#testDump").html(""+result+"");
-                    console.log(result);
-                }
-       })
-       
-  }
-          
+	  <script> 
           
 		  if(($("#signInData").val()) != '')
               {
@@ -178,16 +161,16 @@
                             if(result == 1)
 								{
                                     $("#userEmailVar").val($("#2form-username1").val());
-                                    
-                                    $("#2modSuccessDump").html("Email has been sent");
-									$("#2moduleError").hide();
-									$("#2moduleSuccess").show();
+                                    $("#2modalActivate").trigger('click');
                                     function closeModal(){
-                                       $("#2modSuccessDump").hide(); $("#emailVerifyUserEmailDump").html($("#userEmailVar").val());
+                                        $(".moduleAlert").hide();
+                                        $("#2modalActivate").trigger('click');
+                                       $("#2moduleSuccess").hide();
+                                        $("#emailVerifyUserEmailDump").html($("#userEmailVar").val());
                                         $("#2loginModal1").hide();
                                         $("#2loginModal2").show();
                                     };
-                                    window.setTimeout( closeModal, 900 );
+                                    window.setTimeout( closeModal, 350 );
 								}
 								else{
 									$("#2modErrorDump").html(result);
@@ -206,20 +189,17 @@
 						success: function(result) {
                         if(result == 1)
 								{
-                                    //alert($("#emailVerificationCodeInput").val());
-                                    $("#2modSuccessDump").html("Correct Code Entered");
-									$("#2moduleError").hide();
-									$("#2moduleSuccess").show();
+                                    $("#2modalActivate").trigger('click');
                                     function closeModal(){
-                                       $("#2modSuccessDump").hide(); $("#emailVerificationChangePassEmailDump").html($("#userEmailVar").val());
+                                        $(".moduleAlert").hide();
+                                        $("#2modalActivate").trigger('click');
+                                        $("#emailVerificationChangePassEmailDump").html($("#userEmailVar").val());
                                         $("#2loginModal2").hide();
                                         $("#2loginModal3").show();
                                     };
-                                    window.setTimeout( closeModal, 900 );
+                                    window.setTimeout( closeModal, 350 );
 								}
 								else{
-                                    alert(result);
-                                    //alert($("#emailVerificationCodeInput").val());
 									$("#2modErrorDump").html(result);
 									$("#2moduleSuccess").hide();
 									$("#2moduleError").show();

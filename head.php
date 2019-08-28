@@ -133,92 +133,13 @@ if(!isset($_SESSION['userName']))
       </li>
         
         
-        
-        
-        
-        
-        
+              
 <li class="nav-item dropdown">
     <div class="dropdown1">
         
         <a id="dropbtn" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop By Category</a>
   
-  <div class="dropdown-content1 dropdown-contentStyle">
-<?php
-    
-    $linkKeys = array();
-    
-    if(($_SESSION['userName']) == 'ADMIN' || (!file_exists("neededTabs.txt"))|| (!file_exists("navTabs.txt"))|| (!file_exists("linkKeys.txt")))
-    {
-    
-    $navTabs = '';
-        
-    $rawPageInput = file_get_contents("http://www.balsamachining.com/"); 
-    
-    $exploded = explode ('<a class="qmparent">', $rawPageInput);
-    $count = 0;
-    for($i = 1; $i < sizeof($exploded)-1; $i++)
-    {
-        $tempVar2 = array();   
-        $tempVar3 = array();
-        $tempVar4 = array();
-        $tempVar2 = explode('href="#">', $exploded[$i]);
-        for($j = 0; $j < (sizeof($tempVar2)); $j++)
-        {
-            $tempVar3 = explode("</a>", $tempVar2[$j]);
-            $tempVar4[$j] = $tempVar3[0];
-        }
-        
-        if(sizeof($tempVar4) == 2)
-        {
-            $navTabs .= '<a href="?page='.$tempVar4[0].'">'.$tempVar4[0].'</a>';
-            $count++; 
-            $linkKeys[(sizeof($linkKeys))] = $tempVar4[0];
-        }
-        else
-        {
-            $navTabs .= '<div class="dropdown2"><a href="#" id="innerBox" class="">'.$tempVar4[0].'</a><div style="top:'.($count*70).'px;" class="dropHide dropdown-content2 dropdown-contentStyle">';
-            
-            for($k = 1; $k < sizeof($tempVar4); $k++)
-            {
-                $navTabs .= '<a href="?page='.$tempVar4[$k].'">'.$tempVar4[$k].'</a>';
-                $linkKeys[(sizeof($linkKeys))] = $tempVar4[$k];
-            }
-            
-            $navTabs .= "</div></div>";
-            $count++;
-        }
-        
-        $_SESSION['neededTabs'][($i-1)] = $tempVar4;
-        
-        $myFile = fopen("navTabs.txt", 'w');
-        fclose($myFile);
-        $stringData = serialize($navTabs);
-        file_put_contents("navTabs.txt", $stringData);
-        
-        $myFile = fopen("neededTabs.txt", 'w');
-        fclose($myFile);
-        $stringData = serialize($_SESSION['neededTabs']);
-        file_put_contents("neededTabs.txt", $stringData);
-        
-        $myFile = fopen("linkKeys.txt", 'w');
-        fclose($myFile);
-        $stringData = serialize($linkKeys);
-        file_put_contents("linkKeys.txt", $stringData);
-    }
-    }
-    
-$string_data = file_get_contents("neededTabs.txt");
-$_SESSION['neededTabs'] = unserialize($string_data);
-             
-$string_data = file_get_contents("linkKeys.txt");
-$linkKeys = unserialize($string_data);
-             
-$string_data = file_get_contents("navTabs.txt");
-echo unserialize($string_data);
-        
-?>
-</div></div>  
+  </div>  
 </li>
     </ul>
     
