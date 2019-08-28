@@ -20,7 +20,7 @@
               {
                   $("#logInBtn").html("Logout");
               }
-		  
+		  //eg
 		  //begginning work
 		  $("#loginModal2").hide();
           $("#2loginModal2").hide();
