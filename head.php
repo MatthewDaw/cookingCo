@@ -1,13 +1,5 @@
 <!doctype html>
 
-<?php
-session_start();
-if(!isset($_SESSION['userName']))
-{
-   $_SESSION['userName'] = '';
-    $_POST['changeCode'] = '';
-}
-?>
 
 <html lang="en">
   <head>
@@ -43,110 +35,23 @@ if(!isset($_SESSION['userName']))
               height: 2.8em;
               margin-top: .6em;
           }
-          
-         /*drop menu css*/ 
-        #dropbtn {
-        }
-        .dropdown1 {
-          position: relative;
-          display: inline-block;
-        }
-
-        .dropdown-content1 {
-          display: none;
-          position: absolute;
-
-        }
-        .dropdown-contentStyle
-        {
-            background-color: #f1f1f1;
-            width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-        .dropHide
-        {
-            display:none;
-        }
-        .dropdown-contentStyle a {
-          color: black;
-          padding: 12px 16px;
-          text-decoration: none;
-          display: block;
-           height: 70px;
-        }
-        .dropdown-content2
-            {
-                position:absolute;
-                left: 160px;
-                top: 0px;
-                z-index:2;
-            }
-        #innerBox
-            {
-                width: 160px;
-            }
-        .dropdown-content1 a:hover {background-color: #ddd;}
-        .dropdown1:hover .dropdown-content1 {display: block;}
-        /*.dropdown1:hover #dropbtn {background-color: #3e8e41;}*/
-        .dropdown-content2 a:hover {background-color: #ddd;}
-        .dropdown2:hover .dropdown-content2 {display: block;}
-          
-        th
-            {
-                text-align:center;  
-            }
-        .th1
-            {
-                 height: 30px;
-                 font-size:20px;
-                 text-decoration:underline;
-            }
-
-        .th2
-            {
-                font-size: 14px;
-            }          
-        .th3
+        #jumboTron
           {
-              text-decoration: none;
-              text-align:center;  
+              height: 700px;
           }
-          
+        #navBar
+          {
+              height: 70px;
+          }
 	  </style>
       
       <input type='hidden' id='signInData' value="<?php echo $_SESSION['id'] ?>">
 	  
   </head>
+    
   <body>
     
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="?page=home">Home</a>
-      </li>
-        
-        
-              
-<li class="nav-item dropdown">
-    <div class="dropdown1">
-        
-        <a id="dropbtn" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop By Category</a>
-  
-  </div>  
-</li>
-    </ul>
-    
-      <button id='logInBtn' class="btn btn-outline-success my-2 my-sm-0" type="submit">Login or SignUp</button>
-    
-  </div>
-</nav>
       
       <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -352,4 +257,3 @@ if(!isset($_SESSION['userName']))
 		 </div>
 	  </div>
 	</div>
-      

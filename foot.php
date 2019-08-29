@@ -15,7 +15,7 @@
 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	  
 	  <script> 
-         //test 
+        
 		  if(($("#signInData").val()) != '')
               {
                   $("#logInBtn").html("Logout");
@@ -58,25 +58,18 @@
           })
           
 		  function logIn(){
-				$("#logInBtn").html("Logout");
-				$("#modSuccessDump").html("Sign Up Successful");
-				$("#moduleError").hide();
-				$("#moduleSuccess").show();
-			   //gege
-			  	function closeModal(){
-					$("#moduleClose").click();
-				};
-				window.setTimeout( closeModal, 800 );
+              
+                location.reload();
 		  }
           
 		  function logOut(){
-			  $("#logInBtn").html("Login or SignUp");
 			  $.ajax({
 						type: "POST",
 						url: "actions.php?action=logOut",
 						success: function(result) {
 						}  
 				  })
+              location.reload();
 		  }
 		  
 		  $("#logInBtn").click(function(){
@@ -235,6 +228,18 @@
                         }
               })
            })
+          
+          $("#addSignUp").click(function(){
+              $("#loginModal1").hide();
+              $("#loginModal2").show();
+              $("#modLogSign").html("Log In");
+              $("#modalActivate").trigger('click');
+              
+          })
+          
+          $("#whyScrollSpy1").click(function(){
+              $("#scrollSpyLink").trigger('click');
+          })
           
           
 		  //testWork

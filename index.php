@@ -1,36 +1,37 @@
 <?php 
 
-    
-    include("head.php");
-
     include("functions.php");
 
+    include("head.php");   
 
-    if(isset($_GET['page']))
+    if(isset($_SESSION['id']) && ($_SESSION['id'] != ''))
     {
-    if ($_GET['page'] == 'home')
-    {
-        include("home.php");
-    }
-        else
-        {
-        echo "<script>var pageGo = 1</script>";
-        }
-        
+        include("navbarSI.php");
+
+        include("signedIn.php");
     }
     else
     {
-        include("home.php");
+        include("navbarNSI.php");
+                if(isset($_GET['page']))
+        {
+            if ($_GET['page'] == 'home'){
+
+                include("home.php");
+            }
+            else if($_GET['page'] == 'howItWorks'){
+
+                include('howItWorks.php');
+            }
+            else if($_GET['page'] == 'postedMeal'){
+                include('postedMeal.php');
+            }
+            else if($_GET['page'] == 'requestMeal'){
+                include('requestMeal.php');
+            }
+
+        }
     }
-
-
-?>
-
-
-
-
-<?php
-
 
     include("foot.php");
 
